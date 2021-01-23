@@ -12,8 +12,16 @@ namespace ASP.NET.WebApi.Demo.Controllers
         // GET: Demo2
         public int Index([FromBody] IEnumerable<Product> data)
         {
-            ViewData["items"] = data;
-            return data.Count();
+            if(data != null)
+            {
+                ViewData["items"] = data;
+                return data.Count();
+            }
+            else
+            {
+                return 0;
+            }
+
         }
     }
 }

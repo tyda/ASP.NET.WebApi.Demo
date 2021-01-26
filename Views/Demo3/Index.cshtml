@@ -1,0 +1,39 @@
+﻿@{Layout = null;}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <span id="x"></span>
+    <script>
+        var temp = "";
+        var last = "";
+        var intervalId = window.setInterval(function () {
+            $.ajax({
+                type: "post",
+                url: "http://localhost:53194/receive/data",
+                contentType: 'application/json',
+                data: {},
+                success: function (data, status) {
+                    if (last !== data) {
+                        if (data) {
+                            temp += data + '<br>';
+                            $('#x').html(temp);
+                        }
+                    }
+                    last = data;
+                }
+            });
+        }, 1000);
+
+    </script>
+</body>
+
+</html>

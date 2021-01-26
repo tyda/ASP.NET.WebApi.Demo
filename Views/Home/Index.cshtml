@@ -23,11 +23,12 @@
             $.ajax({
                 type: "post",
                 // url: "http://localhost/aa/bb",
-                url: "http://localhost:53194/demo2/index",
+                // url: "http://localhost:53194/demo2/index",
+                url: "http://localhost:53194/send/data",
                 contentType: 'application/json',
                 data: JSON.stringify(data),
                 success: function (data, status) {
-                    alert('已完成傳送共 ' + data + ' 筆資料');
+                    // alert('已完成傳送共 ' + data + ' 筆資料');
                 }
             });
         });
